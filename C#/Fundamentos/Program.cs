@@ -9,6 +9,7 @@ namespace Fundamentos
                 {"Ola Mundo - Fundamentos", Primeiro.Executar},
                 {"Booleana e inferrência de tipos", Booleanos.Executar},
                 {"Strings e Textos", Textos.Executar},
+                {"Números", Numeros.Executar},
             });
 
             central.SelecionarEExecutar();            
