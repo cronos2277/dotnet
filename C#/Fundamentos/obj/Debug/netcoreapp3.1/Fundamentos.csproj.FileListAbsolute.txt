@@ -1,0 +1,13 @@
+C:\Users\crono\GitHub\dotnet\C#\Fundamentos\bin\Debug\netcoreapp3.1\Fundamentos.exe
+C:\Users\crono\GitHub\dotnet\C#\Fundamentos\bin\Debug\netcoreapp3.1\Fundamentos.deps.json
+C:\Users\crono\GitHub\dotnet\C#\Fundamentos\bin\Debug\netcoreapp3.1\Fundamentos.runtimeconfig.json
+C:\Users\crono\GitHub\dotnet\C#\Fundamentos\bin\Debug\netcoreapp3.1\Fundamentos.runtimeconfig.dev.json
+C:\Users\crono\GitHub\dotnet\C#\Fundamentos\bin\Debug\netcoreapp3.1\Fundamentos.dll
+C:\Users\crono\GitHub\dotnet\C#\Fundamentos\bin\Debug\netcoreapp3.1\Fundamentos.pdb
+C:\Users\crono\GitHub\dotnet\C#\Fundamentos\obj\Debug\netcoreapp3.1\Fundamentos.AssemblyInfoInputs.cache
+C:\Users\crono\GitHub\dotnet\C#\Fundamentos\obj\Debug\netcoreapp3.1\Fundamentos.AssemblyInfo.cs
+C:\Users\crono\GitHub\dotnet\C#\Fundamentos\obj\Debug\netcoreapp3.1\Fundamentos.csproj.CoreCompileInputs.cache
+C:\Users\crono\GitHub\dotnet\C#\Fundamentos\obj\Debug\netcoreapp3.1\Fundamentos.dll
+C:\Users\crono\GitHub\dotnet\C#\Fundamentos\obj\Debug\netcoreapp3.1\Fundamentos.pdb
+C:\Users\crono\GitHub\dotnet\C#\Fundamentos\obj\Debug\netcoreapp3.1\Fundamentos.genruntimeconfig.cache
+C:\Users\crono\GitHub\dotnet\C#\Fundamentos\obj\Debug\netcoreapp3.1\Fundamentos.csproj.AssemblyReference.cache
