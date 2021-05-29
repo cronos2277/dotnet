@@ -9,7 +9,7 @@ namespace Fundamentos
                 {"Ola Mundo - Fundamentos", Primeiro.Executar},
             });
 
-            central.SelecionarEExecutar();
+            central.SelecionarEExecutar();            
         }
     }
 }
