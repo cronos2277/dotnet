@@ -37,6 +37,11 @@ namespace Fundamentos
 
             //Decimal
             Console.WriteLine($"Decimal, valor mínimo: {decimal.MinValue}, valor máximo {decimal.MaxValue}");
+
+            //organizando numeros
+            int num = 1_000_000;
+            Console.Write("Exibindo o número: ");
+            Console.WriteLine(num);
         }
     }
 }

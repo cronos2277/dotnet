@@ -10,6 +10,7 @@
     - [Strings](#strings)
     - [Números](#números)
       - [Exemplo com dados numéricos](#exemplo-com-dados-numéricos)
+      - [Organizando as casas decimais.](#organizando-as-casas-decimais)
 
 
 ## Exemplo Básico
@@ -164,6 +165,11 @@ O *Char* funciona para um caracter em específico, identico a forma de funcionam
 
                 //Decimal
                 Console.WriteLine($"Decimal, valor mínimo: {decimal.MinValue}, valor máximo {decimal.MaxValue}");
+
+                //organizando numeros
+                int num = 1_000_000;
+                Console.Write("Exibindo o número: ");
+                Console.WriteLine(num);
             }
         }
     }
@@ -171,3 +177,12 @@ O *Char* funciona para um caracter em específico, identico a forma de funcionam
 **Todos os tipos destinados a valores numéricos tem métodos e atributos, nesse caso através do `.MinValue` você consegue pegar o menor valor daquele tipo de dados, ao passo que `.MaxValue` pega o maior.**
 
 >A partir do C# 9,0, você pode usar `nint` as `nuint` palavras-chave e para definir inteiros de tamanho nativo. Esses são inteiros de 32 bits ao serem executados em um processo de 32 bits ou inteiros de 64 bits ao serem executados em um processo de 64 bits. Eles podem ser usados para cenários de interoperabilidade, bibliotecas de nível baixo e para otimizar o desempenho em cenários em que o inteiro de matemática é usado extensivamente.
+
+#### Organizando as casas decimais.
+
+     //organizando numeros
+        int num = 1_000_000;
+        Console.Write("Exibindo o número: ");
+        Console.WriteLine(num);
+
+Você pode usar o underline como separador da casa de milhar, conforme visto aqui `int num = 1_000_000;`.
