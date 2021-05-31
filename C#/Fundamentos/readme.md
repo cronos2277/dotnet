@@ -22,6 +22,10 @@
       - [InvariantCulture](#invariantculture)
       - [Convert](#convert)
           - [output do código acima](#output-do-código-acima)
+    - [.ToString e TryParse](#tostring-e-tryparse)
+      - [ToString](#tostring)
+      - [uso do out no contexto do TryParse](#uso-do-out-no-contexto-do-tryparse)
+      - [TryParse](#tryparse)
 
 
 ## Exemplo Básico
@@ -288,4 +292,32 @@ Passando esse objeto como argumento `CultureInfo.InvariantCulture`, você estipu
 O convert permite fazer conversões de maneiras mais seguras que um simples cast. [Documentação Convert](https://docs.microsoft.com/pt-br/dotnet/api/system.convert?view=net-5.0)
 ###### output do código acima
     Numero americano convertido: 10,25 Brasileiro convertido: 10,25 os valores são iguais? True
+    Numero Padrao: 10,25
 
+### .ToString e TryParse
+
+    using System;
+    namespace Fundamentos
+    {
+        class ParseTexto
+        {
+            public static void Executar()
+            {
+                string texto_a = (10.33847).ToString("#.##");
+                Console.WriteLine(texto_a);
+                double.TryParse("a", out double numero);
+                Console.WriteLine($"Numero convertido: {0}",numero);
+            }
+        }
+    }
+
+#### ToString
+Você pode usar esse método para formatar um dado, por exemplo `double.ToString("[STRING-FORMATACAO]")`, aonde você está `"[STRING-FORMATACAO]"`, você passa a colocar uma string que será usado para formatar o dado em questão, nesse caso esse molde `#.##` transforma esse número `10.33847` nesse `10.33`.
+
+#### uso do out no contexto do TryParse
+O out é usado para passar uma variável pode referência, no caso, essa é a estratégia para passar uma referência, mas não só isso, como o **out** também permite criar uma nova variavel a ser usada, conforme é visto nessa linha `double.TryParse("a", out double numero);`. [Documentação out](https://docs.microsoft.com/pt-br/dotnet/csharp/language-reference/keywords/out-parameter-modifier)
+
+>A palavra-chave out faz com que os argumentos sejam passados por referência. Ela torna o parâmetro formal um alias para o argumento, que deve ser uma variável. Em outras palavras, qualquer operação no parâmetro é feita no argumento. É como a palavra-chave ref, exceto pelo fato de que ref requer que a variável seja inicializada antes de ser passada. Também é como a palavra-chave in, exceto que in não permite que o método chamado modifique o valor do argumento. Para usar um parâmetro out, a definição do método e o método de chamada devem usar explicitamente a palavra-chave out. 
+
+#### TryParse
+O TryParse é uma maneira mais segura de se fazer uma conversão, o método aceita dois argumentos, o primeiro é o valor a ser convertido, e depois a referência de uma variável, nesse caso a variável indicado com o `out`, que nasceu naquela linha de código. No caso aquele parse com a letra `a` daria um erro, mas devido a segurança do `TryParse` não é lançado erro na aplicação, no caso o valor de número ali fica em zero. [TryParse documentação](https://docs.microsoft.com/pt-br/dotnet/api/system.double.tryparse?view=net-5.0)
