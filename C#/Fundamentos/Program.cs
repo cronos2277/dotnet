@@ -10,6 +10,8 @@ namespace Fundamentos
                 {"Booleana e inferrência de tipos", Booleanos.Executar},
                 {"Strings e Textos", Textos.Executar},
                 {"Números", Numeros.Executar},
+                {"Conversoes de Tipos", Conversao.Executar},
+                {"Culture Info", ExemploCulture.Executar},
             });
 
             central.SelecionarEExecutar();            

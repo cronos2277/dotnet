@@ -1,4 +1,7 @@
 # Fundamentos
+[Documentação .NET](https://docs.microsoft.com/pt-br/)
+
+[Documentação C#](https://docs.microsoft.com/pt-br/dotnet/csharp/)
 - [Fundamentos](#fundamentos)
   - [Exemplo Básico](#exemplo-básico)
     - [Console.writeLine](#consolewriteline)
@@ -11,6 +14,14 @@
     - [Números](#números)
       - [Exemplo com dados numéricos](#exemplo-com-dados-numéricos)
       - [Organizando as casas decimais.](#organizando-as-casas-decimais)
+    - [Entrada de dados](#entrada-de-dados)
+    - [Cast](#cast)
+    - [Entrada de dados](#entrada-de-dados-1)
+    - [Culture Info](#culture-info)
+      - [CultureInfo](#cultureinfo)
+      - [InvariantCulture](#invariantculture)
+      - [Convert](#convert)
+          - [output do código acima](#output-do-código-acima)
 
 
 ## Exemplo Básico
@@ -186,3 +197,95 @@ O *Char* funciona para um caracter em específico, identico a forma de funcionam
         Console.WriteLine(num);
 
 Você pode usar o underline como separador da casa de milhar, conforme visto aqui `int num = 1_000_000;`.
+
+### Entrada de dados
+
+    using System;
+    namespace Fundamentos
+    {
+        class Conversao
+        {
+            public static void Executar()
+            {
+                Console.WriteLine("Digite alguma coisa:");
+                string resultado = Console.ReadLine();
+                Console.WriteLine("Texto digitado:"+resultado);   
+
+                ...             
+            }
+        }
+    }
+
+Você pode usar o método `Console.ReadLine();`, para receber dados do usuário, valido lembrar que o método `ReadLine` retorna uma String, se tiver esperando um outro dado, se faz necessário converter o mesmo.
+
+### Cast
+[Conversão](Conversao.cs)
+
+    using System;
+    namespace Fundamentos
+    {
+        class Conversao
+        {
+            public static void Executar()
+            {
+                ...
+
+                Console.WriteLine("Dando cast no valor 10.3 para inteiro: {0}",((int) 10.3));
+                Console.WriteLine(
+                        "Convertendo texto para numero: Com Ponto para decimal: '{0}', com virgula: '{1}'",
+                            double.Parse("22.657"), 
+                            double.Parse("22,657")
+                );
+            }
+        }
+    }
+
+Você pode fazer cast no C# igual no Java `... (int) 10.3 ...`, se não houver perda de dados o `cast` ocorre de uma maneira implicita, porém quando ocorre a possibilidade de perdas, como quando ocorre nesse caso `(int) 10.3)`, aonde ao dar um cast com `(int)` em um número decimal, perde-se a parte fracionário, se faz necessário deixar o `cast` explícito. Outra coisa a ser observado é justamente a formatação de dados.
+
+### Entrada de dados
+[Conversão](Conversao.cs)
+
+     Console.WriteLine(
+        "Convertendo texto para numero: Com Ponto para decimal: '{0}', com virgula: '{1}'",
+        double.Parse("22.657"), 
+        double.Parse("22,657")
+    );
+
+Aqui podemos ver um exemplo de como funciona a entrada de dados no `C#`. Essa linguagem de programação leva em consideração a formatação do sistema operacional, por exemplo, em um computador, cuja o sistema operacional entende o separador de casas decimais seja o ponto, essa conversão para double tende a retornar um número decimal `double.Parse("22.657")` porém esse não `double.Parse("22,657")`, agora se o sistema operacional entender a vírgula como um separador para casa decimais, a situação se inverte, como **nesse computador** tem como caracter separador de casa decimais **a vírgula**, logo essa deva-se usar como o separador de casa decimal, sendo **o ponto entendido como separador de milhar**, logo isso deve ser levado em consideração, e esse fenômeno não ocorre apenas com o separador de vírgula, mas com datas, separador de milhar, etc... Caso essa característica não seja desejável, se faz necessário informar isso na sentença de código. Para isso temos o `Globalization`.
+
+### Culture Info
+[Culture](ExemploCulture.cs)
+
+    using System;
+    using System.Globalization;
+
+    namespace Fundamentos
+    {
+        class ExemploCulture
+        {
+            public static void Executar()
+            {
+                CultureInfo americano = new CultureInfo("en-US");
+                double numeroAmericano = Convert.ToDouble("10.25",americano);
+
+                CultureInfo brasileiro = new CultureInfo("pt-BR");
+                double numeroBrasileiro = Convert.ToDouble("10,25", brasileiro);
+
+                Console.WriteLine($"Numero americano convertido: {numeroAmericano} Brasileiro convertido: {numeroBrasileiro} os valores são iguais? {numeroAmericano == numeroBrasileiro}");
+
+                double numeroPadrao = Convert.ToDouble("10.25", CultureInfo.InvariantCulture);
+                Console.WriteLine("Numero Padrao: "+numeroPadrao);         
+            }
+        }
+    }
+
+#### CultureInfo
+Com o `CultureInfo` você consegue contornar esse problema, aqui `CultureInfo americano = new CultureInfo("en-US");` ou aqui `CultureInfo brasileiro = new CultureInfo("pt-BR");`, nesse caso a a formatação de data, e formatações do sistema operacional será ignorado e levado essa instancia, caso o mesmo seja passado como parametros, conforme ilustrado aqui `double numeroAmericano = Convert.ToDouble("10.25",americano);` e aqui `double numeroBrasileiro = Convert.ToDouble("10,25", brasileiro)`, no caso, nessa conversão que além de ser mais segura, está sendo levado a cultura passado como parametro no segundo argumento, ao invés do padrão que é o sistema operacional, caso esse argumento seja omitido. O `CultureInfo` exige a um argumento passado como `string` contendo uma abreviação do idioma em mínusculo, traço o país em questão, ambos abreviado, conforme visto em: `("en-US")`, `("pt-BR")`. [Documentação CultureInfo](https://docs.microsoft.com/pt-br/dotnet/api/system.globalization.cultureinfo?view=net-5.0)
+
+#### InvariantCulture
+Passando esse objeto como argumento `CultureInfo.InvariantCulture`, você estipula como cultura padrão o padrão da linguagem `C#`, que é o padrão americano.
+#### Convert
+O convert permite fazer conversões de maneiras mais seguras que um simples cast. [Documentação Convert](https://docs.microsoft.com/pt-br/dotnet/api/system.convert?view=net-5.0)
+###### output do código acima
+    Numero americano convertido: 10,25 Brasileiro convertido: 10,25 os valores são iguais? True
+
