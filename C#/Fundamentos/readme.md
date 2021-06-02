@@ -26,6 +26,9 @@
       - [ToString](#tostring)
       - [uso do out no contexto do TryParse](#uso-do-out-no-contexto-do-tryparse)
       - [TryParse](#tryparse)
+    - [Operadores e Documentação](#operadores-e-documentação)
+      - [Documentação](#documentação)
+      - [Operadores](#operadores)
 
 
 ## Exemplo Básico
@@ -321,3 +324,47 @@ O out é usado para passar uma variável pode referência, no caso, essa é a es
 
 #### TryParse
 O TryParse é uma maneira mais segura de se fazer uma conversão, o método aceita dois argumentos, o primeiro é o valor a ser convertido, e depois a referência de uma variável, nesse caso a variável indicado com o `out`, que nasceu naquela linha de código. No caso aquele parse com a letra `a` daria um erro, mas devido a segurança do `TryParse` não é lançado erro na aplicação, no caso o valor de número ali fica em zero. [TryParse documentação](https://docs.microsoft.com/pt-br/dotnet/api/system.double.tryparse?view=net-5.0)
+
+### Operadores e Documentação
+    using System;
+    namespace Fundamentos
+    {
+        /// <summary>
+        ///     <operadores>
+        ///         Exemplo de documentação no C#
+        ///     </operadores>
+        /// </summary>
+        class Operadores
+        {
+            public static void Executar()
+            {
+                int a = 0; int b = 0;
+                Console.WriteLine(++a);
+                Console.WriteLine(b--);
+                Console.WriteLine( (1+1) / (2*1) - 1);
+
+                Console.WriteLine("Verdadeiro e Verdadeiro: {0}", true && true);
+                Console.WriteLine("Falso ou Falso: {0}", false || false);
+
+                //XOR
+                Console.WriteLine("\n XOR \n");
+                Console.WriteLine("Verdadeiro XOR Verdadeiro: {0}", true ^ true);
+                Console.WriteLine("Verdadeiro XOR Falso: {0}", true ^ false);
+                Console.WriteLine("Falso XOR Verdadeiro: {0}", false ^ true);
+                Console.WriteLine("Falso XOR Falso: {0}", false ^ false);
+            }
+        }
+    }
+
+#### Documentação
+
+    /// <summary>
+    ///     <operadores>
+    ///         Exemplo de documentação no C#
+    ///     </operadores>
+    /// </summary>
+
+Você pode criar uma documentação para a classe usando as 3 barras, no caso a estrutura segue a mesma de um xml e essa estrutura será processada pela IDE e exibida ao usuário.
+
+#### Operadores
+Segue os mesmos operadores que o Java e C++, no caso: `+` soma para valores numéricos, ou concatenação para strings, `&&` => AND, `||` => OR, `^` => XOR, `!` => NOT. Assim como `+=` => soma e atribui, `-=` subtrai e atribui, `*=` multiplica e atribui, `/=` divide e atribui, `%=` módulo e atribuição, etc... `==` verifica igualdade, `!=` verifica diferença. `++` incremento, `--` decremento, assim como os operadores ternários `? :`, enfim nesse ponto nada muito diferente.

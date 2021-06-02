@@ -13,6 +13,7 @@ namespace Fundamentos
                 {"Conversoes de Tipos", Conversao.Executar},
                 {"Culture Info", ExemploCulture.Executar},
                 {"ParseTexto", ParseTexto.Executar},
+                {"Operadores", Operadores.Executar},
             });
 
             central.SelecionarEExecutar();            
