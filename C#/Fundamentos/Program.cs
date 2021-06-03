@@ -14,6 +14,7 @@ namespace Fundamentos
                 {"Culture Info", ExemploCulture.Executar},
                 {"ParseTexto", ParseTexto.Executar},
                 {"Operadores", Operadores.Executar},
+                {"Desvio Condicional", DesvioCondicional.Executar},
             });
 
             central.SelecionarEExecutar();            

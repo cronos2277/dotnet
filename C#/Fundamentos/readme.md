@@ -29,6 +29,9 @@
     - [Operadores e Documentação](#operadores-e-documentação)
       - [Documentação](#documentação)
       - [Operadores](#operadores)
+  - [Desvio Condicional](#desvio-condicional)
+    - [IF/ELSE/ELSE IF](#ifelseelse-if)
+    - [Switch](#switch)
 
 
 ## Exemplo Básico
@@ -368,3 +371,84 @@ Você pode criar uma documentação para a classe usando as 3 barras, no caso a 
 
 #### Operadores
 Segue os mesmos operadores que o Java e C++, no caso: `+` soma para valores numéricos, ou concatenação para strings, `&&` => AND, `||` => OR, `^` => XOR, `!` => NOT. Assim como `+=` => soma e atribui, `-=` subtrai e atribui, `*=` multiplica e atribui, `/=` divide e atribui, `%=` módulo e atribuição, etc... `==` verifica igualdade, `!=` verifica diferença. `++` incremento, `--` decremento, assim como os operadores ternários `? :`, enfim nesse ponto nada muito diferente.
+
+## Desvio Condicional
+
+    using System;
+    namespace Fundamentos
+    {
+        class DesvioCondicional
+        {
+            public static void Executar()
+            {
+                Console.Write("Informe um número: ");
+                int.TryParse(Console.ReadLine(), out int numero);
+
+                if(numero == 0)
+                {
+                    Console.WriteLine("O numero é zero");
+                }
+                else if(numero > 0)
+                {
+                    Console.WriteLine("Numero maior que zero");
+                }
+                else
+                {
+                    Console.WriteLine("Numero menor que zero");
+                }
+
+                switch (numero)
+                {
+                    case 1:
+                    case 2:
+                    case 3:
+                        Console.WriteLine("Número entre 1,2 ou 3");
+                        break;
+                    case 4: {
+                            Console.WriteLine("Numero igual a 4");
+                            Console.WriteLine("Segunda instrução.");
+                            break;
+                        }
+                    default: Console.WriteLine("Número fora do intervalo 1,4");break ;
+                }
+            }
+        }
+    }
+
+[Desvio Condicional](DesvioCondicional.cs)
+
+### IF/ELSE/ELSE IF
+
+    if(numero == 0)
+    {
+        Console.WriteLine("O numero é zero");
+    }
+    else if(numero > 0)
+    {
+        Console.WriteLine("Numero maior que zero");
+    }
+    else
+    {
+        Console.WriteLine("Numero menor que zero");
+    }
+
+**O desvio condicional de `if`, funciona como em qualquer liguagem de programação, o `else` assim como o `else if` podem ser omitidos. É válido resaltar que `===` não funciona no C#, ou seja essa linguagem de programação não entende 3 iguais como verificador de identidade, como funciona no `PHP` e no `JS`.**
+
+### Switch
+
+    switch (numero)
+    {
+        case 1:
+        case 2:
+        case 3:
+            Console.WriteLine("Número entre 1,2 ou 3");
+            break;
+        case 4: {
+                Console.WriteLine("Numero igual a 4");
+                Console.WriteLine("Segunda instrução.");
+                break;
+            }
+        default: Console.WriteLine("Número fora do intervalo 1,4");break ;
+    }
+
+**O `switch` funciona de maneira semelhante a das outras linguagens de programação, porém existe uma diferença das outras linguagens, ao qual você deve colocar o `break` ou o `continue`, do contrário dará erro e isso vale o mesmo para o `default`. Por exemplo: isso é válido `default: Console.WriteLine("Número fora do intervalo 1,4");break;`, isso `default: Console.WriteLine("Número fora do intervalo 1,4");` não, ou seja no `C#` o `switch` não tem o comportamento de continuar até encontrar um `break`, e isso deve ser observado. Segundo ponto o `switch` aqui trabalha apenas com valores inteiros apenas, diferente do java que aceita string desde a versão 7 por exemplo. De resto funciona como no java.**
