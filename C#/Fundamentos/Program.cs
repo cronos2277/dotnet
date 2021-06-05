@@ -15,6 +15,8 @@ namespace Fundamentos
                 {"ParseTexto", ParseTexto.Executar},
                 {"Operadores", Operadores.Executar},
                 {"Desvio Condicional", DesvioCondicional.Executar},
+                {"While & DoWhile", WhileDoWhile.Executar},
+                {"For e ForEach", ForForEach.Executar},
             });
 
             central.SelecionarEExecutar();            

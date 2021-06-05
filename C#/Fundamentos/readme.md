@@ -32,6 +32,13 @@
   - [Desvio Condicional](#desvio-condicional)
     - [IF/ELSE/ELSE IF](#ifelseelse-if)
     - [Switch](#switch)
+  - [Laços de Repetição](#laços-de-repetição)
+    - [While e Do - while](#while-e-do---while)
+      - [While](#while)
+      - [DoWhile](#dowhile)
+    - [For e ForEach](#for-e-foreach)
+      - [For Normal](#for-normal)
+      - [ForEach](#foreach)
 
 
 ## Exemplo Básico
@@ -452,3 +459,64 @@ Segue os mesmos operadores que o Java e C++, no caso: `+` soma para valores num�
     }
 
 **O `switch` funciona de maneira semelhante a das outras linguagens de programação, porém existe uma diferença das outras linguagens, ao qual você deve colocar o `break` ou o `continue`, do contrário dará erro e isso vale o mesmo para o `default`. Por exemplo: isso é válido `default: Console.WriteLine("Número fora do intervalo 1,4");break;`, isso `default: Console.WriteLine("Número fora do intervalo 1,4");` não, ou seja no `C#` o `switch` não tem o comportamento de continuar até encontrar um `break`, e isso deve ser observado. Segundo ponto o `switch` aqui trabalha apenas com valores inteiros apenas, diferente do java que aceita string desde a versão 7 por exemplo. De resto funciona como no java.**
+
+## Laços de Repetição
+[While e do-while](WhileDoWhile.cs)
+### While e Do - while
+    using System;
+    namespace Fundamentos
+    {
+        class WhileDoWhile
+        {
+            public static void Executar()
+            {
+                int i = 0;
+                while (++i < 10){
+                    Console.WriteLine("WHILE: {0}",i);
+                }
+
+                Console.WriteLine("\n ---- \n");
+
+                do
+                {
+                    Console.WriteLine("DO-WHILE: {0}", i);
+                } while (i-- > 0);
+            }
+        }
+    }
+
+#### While
+`While` funciona como em qualquer outra linguagem de programação, tendo o seu funcionamento interrompido quando essa expressão `while (++i < 10)` for falsa. No caso é feito um incremento na váriavel `i` e após isso é feito a comparação, uma vez que o operador unário está a esquerda da expressão, logo o mesmo tem prioridade maior.
+
+#### DoWhile
+O `do` `while` funciona de maneira similar porém com as suas peculiaridade, assim como em qualquer outra linguagem de programação que suporta isso. Esse é executado ao menos uma vez e apartir da segunda execução é verificado a expressão booleana após as chaves, no caso essa: `while (i-- > 0);`, Detalhe, esse é o único laço de repetição que tem a sua expressão ao fechamento das chaves e é seguido de um ponto e vírgula. Nesse caso o decremento é feito após comparar os operandos ao final do laço, uma vez que o operador unário de decremento está a direita do operando.
+
+### For e ForEach
+[For e ForEach](ForForEach.cs)
+
+    using System;
+    namespace Fundamentos
+    {
+        class ForForEach
+        {
+            public static void Executar()
+            {
+                for (int i = 0;i <= 10; i++)
+                {
+                    Console.WriteLine("For Normal: {0}",i);           
+                }
+                string texto = "Olá Mundo!";
+                Console.WriteLine("\nPalavra: {0}\n",texto);
+                foreach(char letra in texto)
+                {
+                    Console.WriteLine("Caracter: {0}",letra);
+                }
+            }
+        }
+    }
+
+#### For Normal
+`For` funciona como em qualquer linguagem de programação, esse laço é focado em repetições com critérios de parada bem definidos, o primeiro argumento é a variável de contagem que funciona apenas dentro do escopo do laço, o segundo argumento, esse obrigatório é o critério de para e por fim a estratégia de incremento ou decremento da variável.
+
+#### ForEach
+Esse é um laço destinado a arrays, no exemplo é usado uma string, que não é o uso mais comum, porém é válido lembrar que uma string é um array de char e isso fica bem claro no uso desse laço no exemplo acima. Seu uso se assemelha ao javascript `foreach(char letra in texto)`, você define o elemento que vai receber cada elemento do array `char letra` e após temos o array que está sendo referenciados `in texto`.
