@@ -39,6 +39,10 @@
     - [For e ForEach](#for-e-foreach)
       - [For Normal](#for-normal)
       - [ForEach](#foreach)
+  - [Continue e Break](#continue-e-break)
+  - [Numeros randomicos e Console](#numeros-randomicos-e-console)
+    - [Random](#random)
+    - [Console](#console)
 
 
 ## Exemplo Básico
@@ -520,3 +524,63 @@ O `do` `while` funciona de maneira similar porém com as suas peculiaridade, ass
 
 #### ForEach
 Esse é um laço destinado a arrays, no exemplo é usado uma string, que não é o uso mais comum, porém é válido lembrar que uma string é um array de char e isso fica bem claro no uso desse laço no exemplo acima. Seu uso se assemelha ao javascript `foreach(char letra in texto)`, você define o elemento que vai receber cada elemento do array `char letra` e após temos o array que está sendo referenciados `in texto`.
+
+## Continue e Break
+[Break e Continue](BreakContinue.cs)
+
+    using System;
+    namespace Fundamentos
+    {
+        class BreakContinue
+        {
+            public static void Executar()
+            {
+                for(int i = 1; true; i++)
+                {                
+                    if(i % 10 == 0)
+                    {
+                        Console.WriteLine("\n");
+                        continue;
+                    }
+                    Console.Write(i + " ");
+                    if (i == 99)
+                    {
+                        break;
+                    }                
+                }
+            }
+        }
+    }
+
+O break e continue, funciona de maneira semelhante a outras linguagens de programação, no caso quando o contador chegar a um multiplo de dez, o loop é pulado, ao passo que o break faz o laço parar no 99, uma vez que o critério de parado é true: `for(int i = 1; true; i++)`.
+
+## Numeros randomicos e Console
+
+    using System;
+    namespace Fundamentos
+    {
+        class NumeroRandomicoConsoleAvancado
+        {
+            public static void Executar()
+            {
+                Random randomico = new Random();
+                Console.BackgroundColor = ConsoleColor.DarkBlue;
+                Console.WriteLine(randomico.Next(1,100));
+                Console.WriteLine(randomico.NextDouble());
+            }
+        }
+    }
+
+### Random
+Aqui para criar um número randomico, você precisa instanciar o objeto `Random`, dentro desse objeto, você tem dois método que podem ser úteis, sendo o primeiro: `randomico.Next(1,100)`, nesse caso será retornado um número aleatório entre **1** e **99**, o **100** não é incluso nessa lista. No caso é retornado um valor inteiro dentro do número especificado. Além disso temos temos um outro método `randomico.NextDouble()`, que retorna um número entre 0 e 1, no caso esse método trabalha com números decimais.
+
+[Random Classe](https://docs.microsoft.com/pt-br/dotnet/api/system.random?view=net-5.0)
+
+[Random.Next Método](https://docs.microsoft.com/pt-br/dotnet/api/system.random.next?view=net-5.0)
+
+[Random.NextDouble Método](https://docs.microsoft.com/pt-br/dotnet/api/system.random.nextdouble?view=net-5.0)
+
+### Console
+Você também pode alterar as configurações do console, nesse caso estamos alterando a cor de background para azul escuro.
+
+[Classe Console](https://docs.microsoft.com/pt-br/dotnet/api/system.console?view=net-5.0)

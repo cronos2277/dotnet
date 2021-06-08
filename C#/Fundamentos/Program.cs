@@ -17,6 +17,8 @@ namespace Fundamentos
                 {"Desvio Condicional", DesvioCondicional.Executar},
                 {"While & DoWhile", WhileDoWhile.Executar},
                 {"For e ForEach", ForForEach.Executar},
+                {"Break e Continue", BreakContinue.Executar},
+                {"Numero Randomico e Console Avancado", NumeroRandomicoConsoleAvancado.Executar},
             });
 
             central.SelecionarEExecutar();            
